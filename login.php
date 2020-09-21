@@ -20,7 +20,7 @@
 
         $_SESSION['Nome'] = $nome;
         
-        header("location:telaCadastro.php");
+        header("location:index.html");
     }
     else header("location:telaLogin.php");
 ?>
