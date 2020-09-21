@@ -1,0 +1,62 @@
+body{
+    margin:0;
+    padding: 0;;
+}
+.imagem-prod{
+    width: 300px;
+    height: 300px;
+}
+.prod-item-nome{
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #3498db;
+    
+}
+.preco-prod{
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #3498db;
+    background: none;
+}
+.btn-addCarrinho{
+   width: 170px;
+   height: 45px;
+   background: none;
+   border: 3px solid;
+   color: #3498db;
+   font-weight: 700;
+   text-transform: uppercase;
+   cursor: pointer;
+   font-size: 13.5px;
+   position: relative;
+}
+
+.btn-addCarrinho::before,.btn-addCarrinho::after{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 4px;
+    background: white;
+    transform: skewX(50deg);
+    transition: .4s linear;
+}
+.btn-addCarrinho::before{
+    top: -4px;
+    left: 10%;
+}
+.btn-addCarrinho::after{
+    bottom: -4px;
+    right: 10%;
+}
+.btn-addCarrinho:hover::before{
+    left: 80%;
+}
+.btn-addCarrinho:hover::after{
+    right: 80%;
+}
+
+
