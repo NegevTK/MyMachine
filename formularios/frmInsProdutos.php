@@ -24,7 +24,7 @@ if (!isset($_SESSION['Nome']))
             <div class="table border border-secondary bg-primary">
                 <h3>Cadastrar novo produto</h3>
             </div>
-            <form action="insProdutos.php" method="post" id="frmInsProdutos" name="frmInsProdutos" class="col s12">
+            <form action="../metodos/insProdutos.php" method="post" id="frmInsProdutos" name="frmInsProdutos" class="col s12">
                 <div class="form-group">
                     <label for="lblPro_Categoria"><h5>Informe a Categoria:</h5></label>
                     <input type="text" class="form-control" id="txtPro_Categoria" name="txtPro_Categoria">

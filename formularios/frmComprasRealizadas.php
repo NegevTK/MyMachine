@@ -6,11 +6,11 @@ if (!isset($_SESSION['Nome']))
 $cpf = $_SESSION['CPF'];
 // recuperar produtos do banco para listar
 include '../metodos/conexao.php';
-if(!isset($_SESSION['Tipo'])){
+if (!isset($_SESSION['Tipo'])) {
     $pdo = Conexao::conectar();
-    $sql = "SELECT * FROM vendas WHERE CPF=$cpf";
+    $sql = "SELECT * FROM vendas WHERE CPF='$cpf'";
     $listaCompras = $pdo->query($sql);
-}else{
+} else {
     $pdo = Conexao::conectar();
     $sql = "SELECT * FROM vendas";
     $listaCompras = $pdo->query($sql);
@@ -46,7 +46,12 @@ if(!isset($_SESSION['Tipo'])){
                 <th>Quantidade</th>
                 <th>Valor</th>
                 <th>Total</th>
-                <th scope="col" colspan="1">Data</th>
+                <th>Data</th>
+                <?php if (isset($_SESSION['Tipo'])) { ?>
+                    <th scope="col" colspan="1">Concluir</th>
+                <?php
+                }
+                ?>
             </tr>
             <?php
             foreach ($listaCompras as $vendas) {
@@ -63,6 +68,14 @@ if(!isset($_SESSION['Tipo'])){
                     <td class="align-middle"><?php echo number_format($total, 2, ',', '.');
                                                 $total ?></td>
                     <td class="align-middle"><?php echo $vendas['Data_Compra']; ?></td>
+                    <?php if (isset($_SESSION['Tipo'])) { ?>
+                        <td class="align-middle"><a class="btn bg-success" onclick="JavaScript:location.href='../metodos/baixaProdutos.php?ID_Compra=' + 
+                           <?php echo $vendas['ID_Compra']; ?>">
+                                <i class="material-icons">check_circle</i></a>
+                        </td>
+                    <?php
+                    } 
+                    ?>
                 </tr>
             <?php
             }
@@ -78,4 +91,5 @@ if(!isset($_SESSION['Tipo'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+
 </html>

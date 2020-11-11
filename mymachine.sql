@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Out-2020 às 13:45
+-- Tempo de geração: 20-Out-2020 às 02:14
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.2.34
 
@@ -42,24 +42,24 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`ID`, `Categoria`, `Fabricante`, `Nome`, `Valor`, `Quantidade`, `Imagem`) VALUES
-(1, 'Teclado', 'Razer', 'Tarantula', '339.00', 23, 'TecladoRazerTarantula.png'),
-(2, 'Mouse', 'Logitech', 'G5 Refresh', '129.00', 45, 'MouseLogitechG5Refresh.png'),
-(3, 'Teclado', 'Logitech', 'Wave', '189.00', 18, 'KitLogitechWave.png'),
-(4, 'Mouse', 'Logitech', 'V470', '216.00', 28, 'MouseLogitechV470.png'),
-(5, 'Teclado', 'Logitech', 'G15', '116.00', 8, 'TecladoLogitechG15.png'),
-(6, 'Teclado', 'Razer', 'Lycosa', '229.00', 9, 'TecladoRazerLycosa.png'),
-(7, 'Mouse', 'Logitech', 'G5 Silver Edition', '215.00', 29, 'MouseLogitechG5SilverEdition.png'),
-(8, 'Mouse', 'Logitech', 'G5 BF Edition', '250.00', 75, 'MouseLogitechG5BFEdition.png'),
-(9, 'Mouse', 'Logitech', 'G7', '287.00', 96, 'MouseLogitechG7.png'),
-(10, 'Mouse', 'Logitech', 'G7 Corrdless', '236.00', 7, 'MouseLogitechG7Corrdless.png'),
-(11, 'Mouse', 'Logitech', 'MX510', '150.00', 12, 'MouseLogitechMX510.png'),
-(12, 'Mouse', 'Logitech', 'MX Revolution', '220.00', 9, 'MouseLogitechMXRevolution.png'),
-(13, 'Mouse', 'Microsoft', 'Habu', '268.00', 42, 'MouseMicrosoftHabu.png'),
-(14, 'Teclado', 'Microsoft', 'Reclusa Gaming', '126.00', 30, 'TecladoMicrosoftReclusaGaming.png'),
-(15, 'Mouse', 'Razer', 'Diamond Back Magma', '263.00', 23, 'MouseRazerDiamondbackMagma.png'),
-(16, 'Mouse', 'Razer', 'Diamond Back Plasma', '324.00', 87, 'MouseRazerDiamondbackPlasma.png'),
-(17, 'Mouse', 'Razer', 'Pro Gamer Krait', '298.00', 21, 'MouseRazerProGamerKRAIT.png'),
-(18, 'Headset', 'Sennheiser', 'Pro 7.1', '429.00', 110, 'HeadSetSennheiser.png');
+(1, 'Teclados', 'Razer', 'Tarantula', '339.00', 18, 'TecladoRazerTarantula.png'),
+(2, 'Mouses', 'Logitech', 'G5 Refresh', '129.00', 45, 'MouseLogitechG5Refresh.png'),
+(3, 'Teclados', 'Logitech', 'Wave', '189.00', 34, 'KitLogitechWave.png'),
+(4, 'Mouses', 'Logitech', 'V470', '216.00', 28, 'MouseLogitechV470.png'),
+(5, 'Teclados', 'Logitech', 'G15', '116.00', 82, 'TecladoLogitechG15.png'),
+(6, 'Teclados', 'Razer', 'Lycosa', '229.00', 9, 'TecladoRazerLycosa.png'),
+(7, 'Mouses', 'Logitech', 'G5 Silver Edition', '215.00', 27, 'MouseLogitechG5SilverEdition.png'),
+(8, 'Mouses', 'Logitech', 'G5 BF Edition', '250.00', 75, 'MouseLogitechG5BFEdition.png'),
+(9, 'Mouses', 'Logitech', 'G7', '287.00', 96, 'MouseLogitechG7.png'),
+(10, 'Mouses', 'Logitech', 'G7 Corrdless', '236.00', 87, 'MouseLogitechG7Corrdless.png'),
+(11, 'Mouses', 'Logitech', 'MX510', '150.00', 12, 'MouseLogitechMX510.png'),
+(12, 'Mouses', 'Logitech', 'MX Revolution', '220.00', 9, 'MouseLogitechMXRevolution.png'),
+(13, 'Mouses', 'Microsoft', 'Habu', '268.00', 40, 'MouseMicrosoftHabu.png'),
+(14, 'Teclados', 'Microsoft', 'Reclusa Gaming', '126.00', 30, 'TecladoMicrosoftReclusaGaming.png'),
+(15, 'Mouses', 'Razer', 'Diamond Back Magma', '367.00', 221, 'MouseRazerDiamondbackMagma.png'),
+(16, 'Mouses', 'Razer', 'Diamond Back Plasma', '324.00', 87, 'MouseRazerDiamondbackPlasma.png'),
+(17, 'Mouses', 'Razer', 'Pro Gamer Krait', '298.00', 21, 'MouseRazerProGamerKRAIT.png'),
+(18, 'Headsets', 'Sennheiser', 'Pro 7.1', '429.00', 110, 'HeadSetSennheiser.png');
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,8 @@ INSERT INTO `produtos` (`ID`, `Categoria`, `Fabricante`, `Nome`, `Valor`, `Quant
 --
 
 CREATE TABLE `usuarios` (
-  `CPF` int(11) NOT NULL,
+  `ID` int(20) NOT NULL,
+  `CPF` varchar(14) NOT NULL,
   `Nome` varchar(60) NOT NULL,
   `Endereco` varchar(60) NOT NULL,
   `Email` varchar(60) NOT NULL,
@@ -83,13 +84,10 @@ CREATE TABLE `usuarios` (
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`CPF`, `Nome`, `Endereco`, `Email`, `Senha`, `Cidade`, `Estado`, `CEP`, `Tipo`) VALUES
-(1, 'Administrador', '', 'Admin@gmail.com', 'admin', '', '', 0, 1),
-(12312, 'Marcos D\'Aurélio', 'Rua Severino de Almeida, nº 322, Casa.', 'quinha2020@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL),
-(2931239, 'Cassio Siqueira', 'Rua José Carlos da Silva, nº 132, Apartamento.', 'cassio2018@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL),
-(1151236345, 'Adaumar Rounir', 'Rua Severino Eiras, nº 217, Casa.', 'adaumarrounir2020@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL),
-(2045682398, 'Luiz Antônio Soares D\'Aurélio', 'Rua Maria do Rosário, Nº 923, Apartamento.', 'luizantoniosoda@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL),
-(2147483647, 'Daniela', 'Rua Severino da Silve, nº 2322, Apartamento.', 'daniela@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL);
+INSERT INTO `usuarios` (`ID`, `CPF`, `Nome`, `Endereco`, `Email`, `Senha`, `Cidade`, `Estado`, `CEP`, `Tipo`) VALUES
+(1, '', 'Administrador', '', 'Admin@gmail.com', 'admin', '', '', 0, 1),
+(4, '1243', 'Luiz Antônio', 'Rua Fernando de Noronha, nº 2322, Apartamento.', 'luiz2020@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL),
+(5, '5633622145', 'André Gonçalves de Oliveira', 'Rua Maria Ribeiro, nº 322, Caso.', 'andre2020@gmail.com', '1234', 'Maracaí', 'SP', 19840, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,7 +98,7 @@ INSERT INTO `usuarios` (`CPF`, `Nome`, `Endereco`, `Email`, `Senha`, `Cidade`, `
 CREATE TABLE `vendas` (
   `Imagem` varchar(45) NOT NULL,
   `ID_Compra` int(10) NOT NULL,
-  `CPF` varchar(11) NOT NULL,
+  `CPF` varchar(20) NOT NULL,
   `Nome` varchar(45) NOT NULL,
   `Endereco` varchar(60) NOT NULL,
   `Quantidade` int(10) NOT NULL,
@@ -114,12 +112,7 @@ CREATE TABLE `vendas` (
 --
 
 INSERT INTO `vendas` (`Imagem`, `ID_Compra`, `CPF`, `Nome`, `Endereco`, `Quantidade`, `Valor`, `Total`, `Data_Compra`) VALUES
-('TecladoRazerTarantula.png', 23, '2147483647', 'Daniela', 'Rua Severino da Silve, nº 2322, Apartamento.', 1, '339.00', '339.00', '17/10/2020 20:26'),
-('MouseLogitechG5Refresh.png', 24, '2045682398', 'Luiz Antônio Soares D\'Aurélio', 'Rua Maria do Rosário, Nº 923, Apartamento.', 3, '129.00', '387.00', '17/10/2020 20:29'),
-('MouseLogitechG5Refresh.png', 25, '2931239', 'Cassio Siqueira', 'Rua José Carlos da Silva, nº 132, Apartamento.', 2, '129.00', '258.00', '17/10/2020 20:37'),
-('TecladoRazerTarantula.png', 26, '12312', 'Marcos D\'Aurélio', 'Rua Severino de Almeida, nº 322, Casa.', 1, '339.00', '339.00', '17/10/2020 21:26'),
-('MouseLogitechV470.png', 27, '2931239', 'Cassio Siqueira', 'Rua José Carlos da Silva, nº 132, Apartamento.', 2, '216.00', '432.00', '17/10/2020 21:27'),
-('MouseLogitechG5Refresh.png', 28, '12312', 'Marcos D\'Aurélio', 'Rua Severino de Almeida, nº 322, Casa.', 3, '129.00', '387.00', '17/10/2020 22:58');
+('TecladoRazerTarantula.png', 36, '1243', 'Luiz Antônio', 'Rua Fernando de Noronha, nº 2322, Apartamento.', 2, '339.00', '678.00', '19/10/2020 21:12');
 
 --
 -- Índices para tabelas despejadas
@@ -135,8 +128,9 @@ ALTER TABLE `produtos`
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`CPF`),
-  ADD UNIQUE KEY `Email` (`Email`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `CPF` (`CPF`);
 
 --
 -- Índices para tabela `vendas`
@@ -155,10 +149,16 @@ ALTER TABLE `produtos`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de tabela `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `ID_Compra` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ID_Compra` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
